@@ -1,12 +1,13 @@
-package net.penguincoders.doit.Utils;
+package com.michael.todoapp.Utils;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import net.penguincoders.doit.Model.ToDoModel;
+import com.michael.todoapp.Model.ToDoModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(TODO_TABLE, null, cv);
     }
 
+    @SuppressLint("Range")
     public List<ToDoModel> getAllTasks(){
         List<ToDoModel> taskList = new ArrayList<>();
         Cursor cur = null;
@@ -59,7 +61,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         try{
             cur = db.query(TODO_TABLE, null, null, null, null, null, null, null);
             if(cur != null){
-                if(cur.moveToFirst()){
+                if(cur.moveToFirst() && cur.getColumnIndex(ID) != -1 && cur.getColumnIndex(TASK) != -1 && cur.getColumnIndex(STATUS) != -1){
                     do{
                         ToDoModel task = new ToDoModel();
                         task.setId(cur.getInt(cur.getColumnIndex(ID)));

@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    namespace = "com.michael.todoapp"
 
     defaultConfig {
-        applicationId "net.penguincoders.doit"
+        applicationId "com.michael.todoapp"
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 34
+        compileSdk 34
         versionCode 1
         versionName "1.0"
 

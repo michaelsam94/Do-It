@@ -1,4 +1,4 @@
-package net.penguincoders.doit;
+package com.michael.todoapp;
 
 import org.junit.Test;
 

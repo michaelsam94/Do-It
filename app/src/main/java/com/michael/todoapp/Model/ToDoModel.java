@@ -1,4 +1,4 @@
-package net.penguincoders.doit.Model;
+package com.michael.todoapp.Model;
 
 public class ToDoModel {
     private int id, status;
